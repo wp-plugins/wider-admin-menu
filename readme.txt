@@ -3,7 +3,7 @@ Contributors: cdillon27
 Donate link: http://www.wpmission.com/donate/
 Tags: admin menu
 Requires at least: 3.3
-Tested up to: 3.8.1
+Tested up to: 3.8.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -14,13 +14,11 @@ Adjust the width of the Admin Menu to accomodate long menu items.
 
 No more line breaks on long menu items! Got a wide screen? Let's use it!
 
-Easily set the width of the Admin Menu from the default `160px` up to `300px` in increments of 10.
-
-When I say easy, I mean *easy*. Like drag a slider and click `Save`. You can manually enter the width too. Pretty hard to screw up.
+Easily set the width of the Admin Menu from the default `160px` up to `300px` in increments of 10. Easily, like drag a slider and click `Save`. You can manually enter the width too.
 
 This plugin adds your width setting to a small `<style>` section in each admin page. A more efficient alternative is to use the separate CSS file `wider-admin-menu.css` in your theme instead of this plugin. See FAQ below.
 
-Wider Admin Menu has been tested on WordPress versions 3.3 to 3.8.1.
+Wider Admin Menu has been tested on WordPress versions 3.3 to 3.8.2.
 
 This plugin will *leave no trace!* If you delete the plugin, all settings will be removed from the database. Guaranteed. However, simply deactivating it will leave your settings in place, as expected.
 
@@ -84,6 +82,9 @@ On the support forum. If it's doable and adds value and others agree, I'll get r
 Can you help? Contact me [here](http://www.wpmission.com/contact/).
 
 == Changelog ==
+
+= 0.2.3 = 
+* Updated for WordPress 3.8.2.
 
 = 0.2.2 =
 * Added empty `localization` directory.

@@ -3,7 +3,7 @@
 	Plugin Name: Wider Admin Menu
 	Description: Adjust the width of the Admin Menu to accomodate long menu items.
 	Author: Chris Dillon
-	Version: 0.2.2
+	Version: 0.2.3
 	Author URI: http://wpmission.com
 	Text Domain: wpmission
 	License: GPL2
