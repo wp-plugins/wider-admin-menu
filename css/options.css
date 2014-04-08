@@ -1,0 +1,233 @@
+/*
+	options.css
+*/
+
+/* Wider Admin Menu > Options page */
+
+#wpcontent, #wpfooter {
+	/* margin-left: 320px; */ /* to lock content at widest point */
+	transition: margin 0.3s ease;
+}
+
+#adminmenuback, #adminmenuwrap, #adminmenu, #adminmenu .wp-submenu {
+	transition: width 0.3s ease;
+}
+
+/* for WP 3.3 - 3.7.1 */
+.wp-menu-arrow {
+	transition: transform 0.3s ease;
+}
+
+.form-table td { 
+	padding: 10px; 
+	text-align: right;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+	td.lefted {
+		text-align: left;
+	}
+
+	td.wrapped {
+		white-space: wrap;
+	}
+
+	td.slider {
+		padding: 0;
+	}
+
+#nouislider-wrap {
+	border-radius: 10px;
+	display: inline-block;
+	padding: 10px 20px;
+margin-bottom: -7px;
+	width: 300px;
+}
+
+#wpmwam_width {
+	width: 4em; 
+	text-align: right;
+}
+
+/* match input style */
+
+.box.pre-ver38 {
+	background: #eee;
+	border-radius: 3px;
+	color: #333;
+	display: inline-block;
+	margin: 1px;
+	padding: 2px 5px;
+	width: 3em;
+}
+
+.box.ver38 {
+	border: 1px solid #ddd;
+	border-radius: 0;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07) inset;
+	color: #333;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 15px;
+	margin: 1px;
+	padding: 5px;
+	width: 3em;
+}
+
+/* for WP 3.3 - 3.7.1 { */
+.undo {
+  background: url("../../../../wp-admin/images/imgedit-icons.png") no-repeat scroll -188px -35px rgba(0, 0, 0, 0);
+	width: 24px;
+	height: 24px;
+	margin-bottom: -4px;
+	display: inline-block;
+}
+
+	.undo:hover {
+		background-position: -188px -5px;
+	}
+/* } */
+
+/* for WP 3.8+ { */
+.wpmwam a.dashicons {
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 2px;
+}
+
+	.wpmwam a.dashicons:focus {
+		outline: none;
+	}
+
+	.wpmwam a.dashicons:hover {
+		background: #fff;
+		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.07) inset;
+	}
+/* } */
+	
+/* Leave No Trace */
+
+.option {
+	margin: 20px 0 0;
+	padding: 10px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+	.option div {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.option-label {
+		background: #fff;
+		border: 1px solid #ddd;
+		border-radius: 0 10px 10px 0;
+		color: #656565;
+		font-weight: 700;
+		line-height: 22px;
+		margin-left: -40px;
+		margin-right: 10px;
+		padding-right: 10px;
+		text-indent: 34px;
+	}
+
+	.option-label label {
+		/* height: 22px; */
+	}
+
+	.option-desc {
+		vertical-align: top;
+		line-height: 1.5;
+	}
+
+/*
+	toggle switch 
+	thanks http://proto.io/freebies/onoff/
+*/
+
+.onoffswitch {
+	position: relative;
+	width: 70px;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select: none;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.onoffswitch-checkbox {
+	display: none !important;
+}
+
+.onoffswitch-label {
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+	border: 0px solid #2FCCFF;
+	border-radius: 20px;
+}
+
+.onoffswitch-inner {
+	width: 200%;
+	margin-left: -100%;
+	-moz-transition: margin 0.3s ease-in 0s;
+	-webkit-transition: margin 0.3s ease-in 0s;
+	-o-transition: margin 0.3s ease-in 0s;
+	transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+	float: left;
+	width: 50%;
+	height: 24px;
+	padding: 0;
+	line-height: 24px;
+	font-size: 14px;
+	color: white;
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+	content: "ON";
+	padding-left: 10px;
+	background-color: #2FCCFF;
+	color: #FFFFFF;
+}
+
+.onoffswitch-inner:after {
+	content: "OFF";
+	padding-right: 10px;
+	background-color: #656565;
+	color: #EEEEEE;
+	text-align: right;
+}
+
+.onoffswitch-switch {
+	width: 10px;
+	margin: 5px;
+	background: #FFFFFF;
+	border: 2px solid #FFFFFF;
+	border-radius: 20px;
+	position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 46px;
+	-moz-transition: all 0.3s ease-in 0s;
+	-webkit-transition: all 0.3s ease-in 0s;
+	-o-transition: all 0.3s ease-in 0s;
+	transition: all 0.3s ease-in 0s; 
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+	margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+	right: 0px; 
+}

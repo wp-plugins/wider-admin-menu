@@ -1,0 +1,40 @@
+/*
+	wider-admin-menu.css
+	
+	for WordPress 3.3 - 3.7.1
+*/
+
+#wpcontent,
+#footer {
+	margin-left: 220px;
+}
+
+#adminmenuback,
+#adminmenuwrap,
+#adminmenu,
+#adminmenu .wp-submenu,
+#adminmenu .wp-submenu-wrap,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu {
+	width: 200px;
+}
+
+#adminmenu li .wp-submenu,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu {
+	left: 201px;
+}
+
+.wp-menu-arrow {
+	-moz-transform:    translate( 201px );
+	-webkit-transform: translate( 201px );
+	-o-transform:      translate( 201px );
+	-ms-transform:     translate( 201px );
+	transform:         translate( 201px );
+}
+
+#adminmenu li.wp-not-current-submenu .wp-menu-arrow {
+	-moz-transform:    translate( 200px );
+	-webkit-transform: translate( 200px );
+	-o-transform:      translate( 200px );
+	-ms-transform:     translate( 200px );
+	transform:         translate( 200px );
+}
