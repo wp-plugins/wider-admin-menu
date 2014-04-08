@@ -85,6 +85,9 @@ Can you help? Contact me [here](http://www.wpmission.com/contact/).
 
 == Changelog ==
 
+= 0.2.2 =
+* Added empty `localization` directory.
+
 = 0.2.1 =
 * Version bump to trigger update message for anyone who downloaded my svn-fubar.
 
