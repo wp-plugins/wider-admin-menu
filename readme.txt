@@ -85,6 +85,9 @@ Can you help? Contact me [here](http://www.wpmission.com/contact/).
 
 == Changelog ==
 
+= 0.2 =
+* Moved CSS from style.php to in-page <style> section.
+
 = 0.1 =
 * First release.
 
