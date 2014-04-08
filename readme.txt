@@ -85,6 +85,9 @@ Can you help? Contact me [here](http://www.wpmission.com/contact/).
 
 == Changelog ==
 
+= 0.2.1 =
+* Version bump to trigger update message for anyone who downloaded my svn-fubar.
+
 = 0.2 =
 * Moved CSS from style.php to in-page <style> section.
 
