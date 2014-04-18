@@ -3,7 +3,7 @@ Contributors: cdillon27
 Donate link: http://www.wpmission.com/donate/
 Tags: admin menu
 Requires at least: 3.3
-Tested up to: 3.8.2
+Tested up to: 3.9
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -14,11 +14,11 @@ Adjust the width of the Admin Menu to accomodate long menu items.
 
 No more line breaks on long menu items! Got a wide screen? Let's use it!
 
-Easily set the width of the Admin Menu from the default `160px` up to `300px` in increments of 10. Easily, like drag a slider and click `Save`. You can manually enter the width too.
+Easily set the width of the Admin Menu from the default `160px` up to `300px` in increments of 10. Drag a slider and click `Save`. You can manually enter the width too.
 
 This plugin adds your width setting to a small `<style>` section in each admin page. A more efficient alternative is to use the separate CSS file `wider-admin-menu.css` in your theme instead of this plugin. See FAQ below.
 
-Wider Admin Menu has been tested on WordPress versions 3.3 to 3.8.2.
+Wider Admin Menu has been tested on WordPress versions 3.3 to 3.9.
 
 This plugin will *leave no trace!* If you delete the plugin, all settings will be removed from the database. Guaranteed. However, simply deactivating it will leave your settings in place, as expected.
 
@@ -46,7 +46,7 @@ copy the file to your theme folder and add this to your theme's `functions.php` 
 `
 function wpmwam_style() 
 {
-	wp_enqueue_style( 'wpmwam-style',	get_stylesheet_directory_uri() . '/wider-admin-menu.css' );
+  wp_enqueue_style( 'wpmwam-style',	get_stylesheet_directory_uri() . '/wider-admin-menu.css' );
 }
 add_action( 'admin_enqueue_scripts', 'wpmwam_style' );
 `
@@ -67,6 +67,10 @@ So this plugin will completely remove itself upon deletion. Deactivating the plu
 
 On the support forum. If it's doable and adds value and others agree, I'll get right on it. If not, I'll let you know straight up so we don't waste any time.
 
+= Translations. =
+
+Can you help? Contact me [here](http://www.wpmission.com/contact/).
+
 = I need a WordPress mechanic. / I have a plugin idea. =
 
 [Let's talk](http://www.wpmission.com/contact/).
@@ -76,10 +80,6 @@ On the support forum. If it's doable and adds value and others agree, I'll get r
 1. Before: 160px default width.
 2. After: the plugin sets the initial width to 200px.
 3. The sweet & simple settings page where **you** can set the width from 160px - 300px.
-
-== Translations ==
-
-Can you help? Contact me [here](http://www.wpmission.com/contact/).
 
 == Changelog ==
 
