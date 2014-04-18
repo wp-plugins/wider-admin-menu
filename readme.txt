@@ -22,6 +22,10 @@ Wider Admin Menu has been tested on WordPress versions 3.3 to 3.9.
 
 This plugin will *leave no trace!* If you delete the plugin, all settings will be removed from the database. Guaranteed. However, simply deactivating it will leave your settings in place, as expected.
 
+= Translations. =
+
+Can you help? Contact me [here](http://www.wpmission.com/contact/).
+
 == Installation ==
 
 1. Upload the `wider-admin-menu` folder to your `/wp-content/plugins/` directory
@@ -66,10 +70,6 @@ So this plugin will completely remove itself upon deletion. Deactivating the plu
 = Where can I submit feature requests? =
 
 On the support forum. If it's doable and adds value and others agree, I'll get right on it. If not, I'll let you know straight up so we don't waste any time.
-
-= Translations. =
-
-Can you help? Contact me [here](http://www.wpmission.com/contact/).
 
 = I need a WordPress mechanic. / I have a plugin idea. =
 
