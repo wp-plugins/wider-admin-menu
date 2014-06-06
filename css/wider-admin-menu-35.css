@@ -1,23 +1,24 @@
 /*
-	Wider Admin Menu for WordPress 3.3 to 3.4.2
+	Wider Admin Menu for WordPress 3.5 to 3.7.1
 	From http://wordpress.org/plugins/wider-admin-menu/
 */
 
 #wpcontent,
-.wp-admin #footer {
+#wpfooter {
+	/* margin-left: 165px; */
 	margin-left: 220px;
 }
 
 #adminmenuback,
 #adminmenuwrap,
 #adminmenu,
-#adminmenu .wp-submenu,
-#adminmenu .wp-submenu-wrap,
-.folded #adminmenu .wp-has-current-submenu .wp-submenu {
+#adminmenu .wp-submenu {
+/* #adminmenu .wp-submenu-wrap, */
+/* .folded #adminmenu .wp-has-current-submenu .wp-submenu { */
 	width: 200px;
 }
 
-#adminmenu li .wp-submenu,
+#adminmenu .wp-submenu,
 .folded #adminmenu .wp-has-current-submenu .wp-submenu {
 	left: 201px;
 }

@@ -1,12 +1,14 @@
 <?php
 /*
 	Plugin Name: Wider Admin Menu
+	Plugin URI: http://www.wpmission.com/plugins/wider-admin-menu/
 	Description: Adjust the width of the Admin Menu to accomodate long menu items.
 	Author: Chris Dillon
-	Version: 0.2.3
+	Version: 0.3
 	Author URI: http://wpmission.com
 	Text Domain: wpmission
-	License: GPL2
+	Requires: 3.3 or higher
+	License: GPLv3 or later
 
 	Copyright 2014 • Chris Dillon • chris@wpmission.com
 
@@ -24,11 +26,11 @@
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+
 /*
 	Install with default setting.
 */
-function wpmwam_install()
-{
+function wpmwam_install() {
 	$options = array(
 			'wpmwam_width' => 200,
 			'wpmwam_lnt' => 1
@@ -41,10 +43,9 @@ register_activation_hook( __FILE__, 'wpmwam_install' );
 /*
 	Uninstall and leave no trace.
 */ 
-function wpmwam_uninstall()
-{
+function wpmwam_uninstall() {
 	$options = get_option( 'wpmwam_options' );
-	if( $options['wpmwam_lnt'] )
+	if ( $options['wpmwam_lnt'] )
 		delete_option( 'wpmwam_options' );
 }
 register_uninstall_hook( __FILE__, 'wpmwam_uninstall' );
@@ -53,8 +54,7 @@ register_uninstall_hook( __FILE__, 'wpmwam_uninstall' );
 /*
 	Localization
 */
-function wpmwam_init() 
-{
+function wpmwam_init() {
 	load_plugin_textdomain( 'wpmwam', false, 
 	plugin_basename( dirname( __FILE__ ) . '/localization' ) );
 }
@@ -62,13 +62,26 @@ add_action( 'init', 'wpmwam_init' );
 
 
 /*
+	Plugin list action links
+*/
+function wpmwam_action_links( $links, $file ) {
+	$this_plugin = plugin_basename(__FILE__);
+
+	if ( $file == $this_plugin ){
+		$settings_link = '<a href="options-general.php?page=wider-admin-menu.php">' . __( 'Settings', 'wpmwam' ) . '</a>';
+		array_unshift( $links, $settings_link );
+	}
+	return $links;
+}
+add_filter( 'plugin_action_links', 'wpmwam_action_links', 10, 2 );
+
+
+/*
 	Load styles and scripts.
 */
-function wpmwam_admin_style( $hook ) 
-{
+function wpmwam_admin_style( $hook ) {
 	// Are we on our settings page?
-	if( 'settings_page_wider-admin-menu' == $hook )
-	{
+	if ( 'settings_page_wider-admin-menu' == $hook ) {
 		wp_enqueue_style( 'nouislider-style',	plugins_url( '/css/jquery.nouislider.min.css', __FILE__ ) );
 		wp_register_script( 'nouislider', plugins_url( '/js/jquery.nouislider.min.js', __FILE__ ), array( 'jquery' ) );
 		wp_enqueue_script( 'nouislider' );
@@ -84,18 +97,13 @@ add_action( 'admin_enqueue_scripts', 'wpmwam_admin_style' );
 /*
 	Insert custom admin style.
 */
-function wpmwam_custom_admin_style()
-{
+function wpmwam_custom_admin_style() {
 	$wp_version = get_bloginfo( 'version' );
-	$ver_parts = explode( '.', $wp_version );
-	$major = (int) $ver_parts[0];
-	$minor = (int) $ver_parts[1];
-	$patch = isset( $ver_parts[2] ) ? (int) $ver_parts[2] : 0;
-	
 	// Get width option. Prevent zero in case of installation error.
 	$wpmwam = get_option( 'wpmwam_options' );
 	$w = (int) $wpmwam['wpmwam_width'];
-	if( !$w ) $w = 160;
+	if ( ! $w ) 
+		$w = 160;
 	$wpx = $w . 'px';
 	$w1px = ( $w + 1 ) . 'px';
 	$w2px = ( $w + 20 ) . 'px';
@@ -104,56 +112,94 @@ function wpmwam_custom_admin_style()
 	ob_start();
 	?>
 <style>
-	/* Wider Admin Menu for WordPress <?php echo $wp_version; ?> */
-<?php if( $major >= 3 && $minor >= 8 ) : ?>
-	#wpcontent,
-	#wpfooter {
-		margin-left: <?php echo $w2px; ?>;
-	}
-	#adminmenuback,
-	#adminmenuwrap,
-	#adminmenu,
-	#adminmenu .wp-submenu {
-		width: <?php echo $wpx; ?>;
-	}
-	#adminmenu .wp-submenu {
-		left: <?php echo $wpx; ?>;
-	}
-	#adminmenu .wp-not-current-submenu .wp-submenu,
-	.folded #adminmenu .wp-has-current-submenu .wp-submenu {
-		min-width: <?php echo $wpx; ?>;
-	}
+/* Wider Admin Menu for WordPress <?php echo $wp_version; ?> */
+
+<?php if ( version_compare( $wp_version, '3.8', '>=' ) ) : ?>
+#wpcontent,
+#wpfooter {
+	margin-left: <?php echo $w2px; ?>;
+}
+#adminmenuback,
+#adminmenuwrap,
+#adminmenu,
+#adminmenu .wp-submenu {
+	width: <?php echo $wpx; ?>;
+}
+#adminmenu .wp-submenu {
+	left: <?php echo $wpx; ?>;
+}
+#adminmenu .wp-not-current-submenu .wp-submenu,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu {
+	min-width: <?php echo $wpx; ?>;
+}
+
+<?php elseif ( version_compare( $wp_version, '3.5', '>=' ) ) : ?>	
+#wpcontent,
+#wpfooter {
+	margin-left: <?php echo $w2px; ?>;
+}
+#adminmenuback,
+#adminmenuwrap,
+#adminmenu,
+#adminmenu .wp-submenu,
+#adminmenu .wp-submenu-wrap,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu {
+	width: <?php echo $wpx; ?>;
+}
+#adminmenu li .wp-submenu,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu {
+	left: <?php echo $w1px; ?>;
+}
+.wp-menu-arrow {
+	-moz-transform:    translate( <?php echo $w1px; ?> );
+	-webkit-transform: translate( <?php echo $w1px; ?> );
+	-o-transform:      translate( <?php echo $w1px; ?> );
+	-ms-transform:     translate( <?php echo $w1px; ?> );
+	transform:         translate( <?php echo $w1px; ?> );
+}
+#adminmenu li.wp-not-current-submenu .wp-menu-arrow {
+	-moz-transform:    translate( <?php echo $wpx; ?> );
+	-webkit-transform: translate( <?php echo $wpx; ?> );
+	-o-transform:      translate( <?php echo $wpx; ?> );
+	-ms-transform:     translate( <?php echo $wpx; ?> );
+	transform:         translate( <?php echo $wpx; ?> );
+}
+
+<?php elseif ( version_compare( $wp_version, '3.3', '>=' ) ) : ?>
+#wpcontent,
+.wp-admin #footer {
+	margin-left: <?php echo $w2px; ?>;
+}
+#adminmenuback,
+#adminmenuwrap,
+#adminmenu,
+#adminmenu .wp-submenu,
+#adminmenu .wp-submenu-wrap,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu {
+	width: <?php echo $wpx; ?>;
+}
+#adminmenu li .wp-submenu,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu {
+	left: <?php echo $w1px; ?>;
+}
+.wp-menu-arrow {
+	-moz-transform:    translate( <?php echo $w1px; ?> );
+	-webkit-transform: translate( <?php echo $w1px; ?> );
+	-o-transform:      translate( <?php echo $w1px; ?> );
+	-ms-transform:     translate( <?php echo $w1px; ?> );
+	transform:         translate( <?php echo $w1px; ?> );
+}
+#adminmenu li.wp-not-current-submenu .wp-menu-arrow {
+	-moz-transform:    translate( <?php echo $wpx; ?> );
+	-webkit-transform: translate( <?php echo $wpx; ?> );
+	-o-transform:      translate( <?php echo $wpx; ?> );
+	-ms-transform:     translate( <?php echo $wpx; ?> );
+	transform:         translate( <?php echo $wpx; ?> );
+}
+
 <?php else : ?>
-	#wpcontent,
-	#footer {
-		margin-left: <?php echo $w2px; ?>;
-	}
-	#adminmenuback,
-	#adminmenuwrap,
-	#adminmenu,
-	#adminmenu .wp-submenu,
-	#adminmenu .wp-submenu-wrap,
-	.folded #adminmenu .wp-has-current-submenu .wp-submenu {
-		width: <?php echo $wpx; ?>;
-	}
-	#adminmenu li .wp-submenu,
-	.folded #adminmenu .wp-has-current-submenu .wp-submenu {
-		left: <?php echo $w1px; ?>;
-	}
-	.wp-menu-arrow {
-		-moz-transform:    translate( <?php echo $w1px; ?> );
-		-webkit-transform: translate( <?php echo $w1px; ?> );
-		-o-transform:      translate( <?php echo $w1px; ?> );
-		-ms-transform:     translate( <?php echo $w1px; ?> );
-		transform:         translate( <?php echo $w1px; ?> );
-	}
-	#adminmenu li.wp-not-current-submenu .wp-menu-arrow {
-		-moz-transform:    translate( <?php echo $wpx; ?> );
-		-webkit-transform: translate( <?php echo $wpx; ?> );
-		-o-transform:      translate( <?php echo $wpx; ?> );
-		-ms-transform:     translate( <?php echo $wpx; ?> );
-		transform:         translate( <?php echo $wpx; ?> );
-	}
+/* no style available */
+
 <?php endif; ?>
 </style>
 	<?php
@@ -167,8 +213,7 @@ add_action( 'admin_head', 'wpmwam_custom_admin_style' );
 /*
 	Add options page to Settings menu.
 */
-function wpmwam_add_options_page() 
-{
+function wpmwam_add_options_page() {
 	add_options_page( 'Wider Admin Menu', 'Wider Admin Menu', 'manage_options', basename( __FILE__ ), 'wpmwam_page' );
 	add_action( 'admin_init', 'wpmwam_register_settings' );
 }
@@ -178,8 +223,7 @@ add_action( 'admin_menu', 'wpmwam_add_options_page' );
 /*
 	Register the setting.
 */
-function wpmwam_register_settings()
-{
+function wpmwam_register_settings() {
 	register_setting( 'wpmwam_settings_group', 'wpmwam_options', 'wpmwam_sanitize_options' );
 }
 
@@ -188,12 +232,11 @@ function wpmwam_register_settings()
 	Sanitize user input.
 	If options are stored in an array, each element must be treated separately.
 */
-function wpmwam_sanitize_options( $input )
-{
+function wpmwam_sanitize_options( $input ) {
 	$input['wpmwam_width'] = sanitize_text_field( $input['wpmwam_width'] );
 	
 	// checkbox
-	if( isset( $input['wpmwam_lnt'] ) )
+	if ( isset( $input['wpmwam_lnt'] ) )
 		$input['wpmwam_lnt'] = 1;
 	else
 		$input['wpmwam_lnt'] = 0;
@@ -205,9 +248,8 @@ function wpmwam_sanitize_options( $input )
 /*
 	The options page.
 */
-function wpmwam_page() 
-{
-	if( !current_user_can( 'manage_options' ) )
+function wpmwam_page() {
+	if ( ! current_user_can( 'manage_options' ) )
 		return false;
 		
 	?>
@@ -216,23 +258,18 @@ function wpmwam_page()
 		<h2><?php _e( 'Wider Admin Menu', 'wpmwam' ); ?></h2>
 		
 		<p><?php _e( 'Adjust the width of the Admin Menu to accomodate longer menu items.', 'wpmwam' ); ?></p>
+
+		<h3>Settings</h3>
 		
 		<form method="post" action="options.php">
 		
 			<?php
 			// version-based CSS classes
 			$wp_version = get_bloginfo( 'version' );
-			$ver_parts = explode( '.', $wp_version );
-			$major = (int) $ver_parts[0];
-			$minor = (int) $ver_parts[1];
-			$patch = isset( $ver_parts[2] ) ? (int) $ver_parts[2] : 0;
-			if( $major >= 3 && $minor >= 8 )
-			{
+			if ( version_compare( $wp_version, '3.8', '>=' ) ) {
 				$version_class = 'ver38';
 				$reset_class = 'dashicons dashicons-undo';
-			}
-			else
-			{
+			} else {
 				$version_class = 'pre-ver38';
 				$reset_class = 'undo';
 			}
@@ -241,7 +278,8 @@ function wpmwam_page()
 			settings_fields( 'wpmwam_settings_group' );
 			$wpmwam_options = get_option( 'wpmwam_options' );
 			$wpmwam_width = $wpmwam_options['wpmwam_width'];
-			if( !$wpmwam_width ) $wpmwam_width = $default_width;
+			if ( ! $wpmwam_width )
+				$wpmwam_width = $default_width;
 			?>
 			
 			<input type="hidden" name="wp_version" value="<?php echo $wp_version; ?>">
@@ -278,8 +316,7 @@ function wpmwam_page()
 			
 			<div class="option leave-no-trace">
 				<div class="onoffswitch">
-					<input id="myonoffswitch" type="checkbox" name="wpmwam_options[wpmwam_lnt]" 
-							class="onoffswitch-checkbox" value="1" <?php checked( 1, $wpmwam_options['wpmwam_lnt'] ); ?>>
+					<input id="myonoffswitch" type="checkbox" name="wpmwam_options[wpmwam_lnt]" class="onoffswitch-checkbox" value="1" <?php checked( 1, $wpmwam_options['wpmwam_lnt'] ); ?>>
 					<label class="onoffswitch-label" for="myonoffswitch">
 						<div class="onoffswitch-inner"></div>
 						<div class="onoffswitch-switch"></div>
@@ -296,6 +333,31 @@ function wpmwam_page()
 			</p>
 			
 		</form>
+		
+		<hr>
+		
+		<h3>Alternate Method</h3>
+		
+		<p>Find the <code>/wp-content/plugins/wider-admin-menu/css/wider-admin-menu.css</code> stylesheet.</p>
+
+		<p>Then either copy its contents to your theme's stylesheet,</p>
+
+		<p>OR</p>
+
+		<p>copy the file to your theme folder and add this to your theme's <code>functions.php</code> to load it:</p>
+
+<pre<?php if ( version_compare( $wp_version, '3.8', '<' ) ) echo ' class="lt38"'; ?>>
+/* load Wider Admin Menu stylesheet */
+function wpmwam_style() {
+  wp_enqueue_style( 'wpmwam-style', get_stylesheet_directory_uri() . '/wider-admin-menu.css' );
+}
+add_action( 'admin_enqueue_scripts', 'wpmwam_style' );
+</pre>
+		
+		<p><strong>That stylesheet covers WordPress 3.8 and up</strong>. For WordPress 3.5 to 3.7.1, substitute <code>wider-admin-menu-35.css</code>. For WordPress 3.3 to 3.4.2, substitute <code>wider-admin-menu-33.css</code>.
+		</p>
+		
+		<p>Then you can deactivate this plugin.</p>
 		
 	</div>
 	<?php

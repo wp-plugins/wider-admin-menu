@@ -1,16 +1,22 @@
 /*
-	options.css
+	Wider Admin Menu > Options page
+	http://wordpress.org/plugins/wider-admin-menu/
 */
 
-/* Wider Admin Menu > Options page */
-
-#wpcontent, #wpfooter {
+#wpcontent, #wpfooter .wp-admin #footer {
 	/* margin-left: 320px; */ /* to lock content at widest point */
 	transition: margin 0.3s ease;
 }
 
 #adminmenuback, #adminmenuwrap, #adminmenu, #adminmenu .wp-submenu {
 	transition: width 0.3s ease;
+}
+
+pre {
+	background: #FFF;
+}
+pre.lt38 {
+	background: #EAEAEA;
 }
 
 /* for WP 3.3 - 3.7.1 */
