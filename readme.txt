@@ -101,21 +101,18 @@ Definitely upgrade if you're running WordPress versions 3.5 to 3.7.1.
 
 == Markdown Test ==
 
-        indented 8 spaces
+`This is a test to wring as much style as possible out of WordPress' (bland) flavor of Markdown.`
 
-`= h4 =`
-= h4 =
+Strong Testimonials by [WP Mission](http://www.wpmission.com) makes testimonials simple.
 
+* **Show** with a variety of shortcodes or in a widget with transition effects.
+* **Collect** through a customizable form with anti-spam options.
+* **Manage** in the post editor including Featured Images and Categories.
 
-`> blockquote`
-> **Bold** plain *italic* - no line break  
-On the other hand, if you want - line break
+> **This is a work in progress.** Strong is my project for learning plugin development. It will always be free. If you cannot tolerate occasional bugs and frequent updates, then please consider another plugin. 
 
-* to participate in this plugin's development by offering ideas and feedback,
-* the prompt, personal attention of its developer (who will move mountains to resolve issues),
-* popular features that other plugins offer at a price,
+> On the other hand, if you want: -- to participate in this plugin's development by offering ideas and feedback, -- the prompt, personal attention of its developer (who will move mountains to resolve issues), -- popular features that other plugins offer at a price, then welcome aboard! You have been warned :)
 
-then welcome aboard! You have been warned :)
+> On the other hand, if you want: [ to participate in this plugin's development by offering ideas and feedback ],  [ the prompt, personal attention of its developer (who will move mountains to resolve issues) ], [ popular features that other plugins offer at a price ], then welcome aboard! You have been warned :)
 
-
-
+> On the other hand, if you want ::: to participate in this plugin's development by offering ideas and feedback, ::: the prompt, personal attention of its developer (who will move mountains to resolve issues), ::: popular features that other plugins offer at a price, *then welcome aboard!* You have been warned :)
