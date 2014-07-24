@@ -106,27 +106,14 @@ Definitely upgrade if you're running WordPress versions 3.5 to 3.7.1.
 `= h4 =`
 = h4 =
 
-===== 5 equal signs =====
-
-====== 6 equal signs ======
 
 `> blockquote`
-> blockquote
+> **Bold** plain *italic* - no line break  
+On the other hand, if you want
+* to participate in this plugin's development by offering ideas and feedback,
+* the prompt, personal attention of its developer (who will move mountains to resolve issues),
+* popular features that other plugins offer at a price,
+then welcome aboard! You have been warned :)
 
-``code``
-`code`
 
-= Horizontal rules? =
-
-`---`
----
-
-`===`
-===
-
-`***`
-***
-
-`* * *`
-* * *
 
