@@ -101,24 +101,32 @@ Definitely upgrade if you're running WordPress versions 3.5 to 3.7.1.
 
 == Markdown Test ==
 
-    indented 4 spaces
+        indented 8 spaces
 
+`= h4 =`
 = h4 =
 
-=== 3 equal signs = h5? ===
+===== 5 equal signs =====
 
-==== 4 equal signs = h6? ===
+====== 6 equal signs ======
 
+`> blockquote`
 > blockquote
 
+``code``
 `code`
 
-Horizontal rules?
+= Horizontal rules? =
 
+`---`
 ---
 
+`===`
 ===
 
+`***`
 ***
 
+`* * *`
 * * *
+
