@@ -26,6 +26,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+ 
 class WiderAdminMenu {
 
 	public function __construct() {
@@ -34,7 +35,7 @@ class WiderAdminMenu {
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_styles' ) );
 		
 		register_activation_hook( __FILE__, array( $this, 'install' ) );
-		register_uninstall_hook( __FILE__, array( $this, 'uninstall' ) );
+		register_uninstall_hook( __FILE__, 'WiderAdminMenu', 'uninstall' );
 		
 		add_filter( 'plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2 );
 		add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 4 );
@@ -54,6 +55,17 @@ class WiderAdminMenu {
 	}
 	
 	/*
+	 * Uninstall and Leave No Trace.
+	 */ 
+	public static function uninstall() {
+		if ( !defined( 'WP_UNINSTALL_PLUGIN' ) ) 
+			exit();
+		$options = get_option( 'wpmwam_options' );
+		if ( $options['wpmwam_lnt'] )
+			delete_option( 'wpmwam_options' );
+	}
+	
+	/*
 	 * Install with default setting.
 	 */
 	public function install() {
@@ -64,15 +76,6 @@ class WiderAdminMenu {
 		update_option( 'wpmwam_options', $options );
 	}
 	
-	/*
-	 * Uninstall and Leave No Trace.
-	 */ 
-	public function uninstall() {
-		$options = get_option( 'wpmwam_options' );
-		if ( $options['wpmwam_lnt'] )
-			delete_option( 'wpmwam_options' );
-	}
-
 	/*
 	 * Plugin list action links
 	 */
