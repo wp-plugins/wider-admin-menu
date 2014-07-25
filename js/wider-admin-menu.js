@@ -1,6 +1,6 @@
 /*
-	wider-admin-menu.js
-*/
+ * Wider Admin Menu
+ */
 jQuery( document ).ready(function($){
 	
 	var wpVersion = $('input[name="wp_version"]').val();

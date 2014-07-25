@@ -1,7 +1,10 @@
 /*
-	Wider Admin Menu > Options page
-	http://wordpress.org/plugins/wider-admin-menu/
-*/
+ * Wider Admin Menu > Options page
+ */
+
+.wpmwam {
+	margin: 20px 0;
+}
 
 #wpcontent, #wpfooter .wp-admin #footer {
 	/* margin-left: 320px; */ /* to lock content at widest point */
@@ -14,6 +17,7 @@
 
 pre {
 	background: #FFF;
+	padding: 5px;
 }
 pre.lt38 {
 	background: #EAEAEA;
@@ -47,7 +51,7 @@ pre.lt38 {
 	border-radius: 10px;
 	display: inline-block;
 	padding: 10px 20px;
-margin-bottom: -7px;
+	margin-bottom: -7px;
 	width: 300px;
 }
 
