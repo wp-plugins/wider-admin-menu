@@ -69,6 +69,10 @@ Please use the [support forum](http://wordpress.org/support/plugin/wider-admin-m
 
 == Changelog ==
 
+= 1.0 =
+* Refactored to object-oriented.
+* Improved i18n, ready for translations.
+
 = 0.3 =
 * Use PHP `version_compare` function.
 * Fix footer style for WordPress 3.5 to 3.7.1.
@@ -91,6 +95,9 @@ Please use the [support forum](http://wordpress.org/support/plugin/wider-admin-m
 * First release.
 
 == Upgrade Notice ==
+
+= 1.0 =
+Refactor to object-oriented. Improved i18n, ready for translations.
 
 = 0.3 =
 Definitely upgrade if you're running WordPress versions 3.5 to 3.7.1.
