@@ -3,7 +3,7 @@ Contributors: cdillon27
 Donate link: http://www.wpmission.com/donate/
 Tags: admin, menu
 Requires at least: 3.3
-Tested up to: 3.9.1
+Tested up to: 3.9.2
 Stable tag: trunk
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
