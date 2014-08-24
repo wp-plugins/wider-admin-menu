@@ -29,15 +29,22 @@ Can you help? Please [contact me](http://www.wpmission.com/contact/).
 
 == Installation ==
 
-Option A: Go to Plugins > Add New, search for "wider admin menu", and click "Install Now".
+Option A: 
 
-Option B: Download the zip file. Then either: 
+1. Go to `Plugins > Add New`.
+1. Search for "wider admin menu".
+1. Click "Install Now".
 
-Unzip it on your hard drive and upload the `wider-admin-menu` folder to the `/wp-content/plugins/` directory.
+Option B: 
 
-OR
+1. Download the zip file.
+1. Unzip it on your hard drive.
+1. Upload the `wider-admin-menu` folder to the `/wp-content/plugins/` directory.
 
-Upload the entire zip file via Plugins > Add New > Upload.
+Option C:
+
+1. Download the zip file.
+1. Upload the zip file via `Plugins > Add New > Upload`.
 
 Finally, activate the plugin.
 
