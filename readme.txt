@@ -18,9 +18,32 @@ A separate stylesheet is also included if you wish to avoid Yet Another Plugin. 
 
 This plugin will *leave no trace!* If you delete the plugin, all settings will be removed from the database. Guaranteed. However, simply deactivating it will leave your settings in place, as expected.
 
+= Recommended =
+
+[Admin Menu Post List](http://wordpress.org/plugins/admin-menu-post-list/) (100% compatible)
+
 = Translations. =
 
-Can you help? Contact me [here](http://www.wpmission.com/contact/).
+Can you help? Please [contact me](http://www.wpmission.com/contact/).
+
+
+== Installation ==
+
+Option A: Go to Plugins > Add New, search for "wider admin menu", and click "Install Now".
+
+Option B: Download the zip file. Then either: 
+
+Unzip it on your hard drive and upload the `wider-admin-menu` folder to the `/wp-content/plugins/` directory.
+
+OR
+
+Upload the entire zip file via Plugins > Add New > Upload.
+
+Finally, activate the plugin.
+
+By default, the plugin will set the width of the admin menu to `200px`. Go to Settings > Wider Admin Menu to select a new width.
+
+If you have any questions or need help, use the [support forum](http://wordpress.org/support/plugin/wider-admin-menu) or [contact me](http://www.wpmission.com/contact/).
 
 == Frequently Asked Questions ==
 
@@ -44,7 +67,9 @@ add_action( 'admin_enqueue_scripts', 'wider_admin_menu' );
 `
 
 That covers WordPress 3.8 and up.
+
 For WordPress 3.5 to 3.7.1, substitute `wider-admin-menu-35.css`.
+
 For WordPress 3.3 to 3.4.2, substitute `wider-admin-menu-33.css`.
 
 Need a hand? I'm on the [support forum](http://wordpress.org/support/plugin/wider-admin-menu).
