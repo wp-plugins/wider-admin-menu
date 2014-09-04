@@ -1,11 +1,11 @@
 /*
-	Wider Admin Menu for WordPress 4.0 and higher
+	Wider Admin Menu for WordPress 3.8 and higher
 	From http://wordpress.org/plugins/wider-admin-menu/
 */
 
 #wpcontent,
 #wpfooter {
-	margin-left: 200px;
+	margin-left: 220px;
 }
 
 #adminmenuback,

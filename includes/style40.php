@@ -1,25 +1,20 @@
-/*
-	Wider Admin Menu for WordPress 4.0 and higher
-	From http://wordpress.org/plugins/wider-admin-menu/
-*/
-
+<style>
+/* Wider Admin Menu for WordPress <?php echo $wp_version; ?> */
 #wpcontent,
 #wpfooter {
-	margin-left: 200px;
+	margin-left: <?php echo $wpx; ?>;
 }
-
 #adminmenuback,
 #adminmenuwrap,
 #adminmenu,
 #adminmenu .wp-submenu {
-	width: 200px;
+	width: <?php echo $wpx; ?>;
 }
-
 #adminmenu .wp-submenu {
-	left: 200px;
+	left: <?php echo $wpx; ?>;
 }
-
 #adminmenu .wp-not-current-submenu .wp-submenu,
 .folded #adminmenu .wp-has-current-submenu .wp-submenu {
-	min-width: 200px;
+	min-width: <?php echo $wpx; ?>;
 }
+</style>

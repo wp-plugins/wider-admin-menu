@@ -73,7 +73,9 @@ function wider_admin_menu() {
 add_action( 'admin_enqueue_scripts', 'wider_admin_menu' );
 `
 
-That covers WordPress 3.8 and up.
+That covers WordPress 4.0 and up.
+
+For WordPress 3.8 to 3.9.2, substitute `wider-admin-menu-38.css`.
 
 For WordPress 3.5 to 3.7.1, substitute `wider-admin-menu-35.css`.
 
@@ -100,6 +102,9 @@ Please use the [support forum](http://wordpress.org/support/plugin/wider-admin-m
 3. The sweet & simple settings page where **you** can set the width from 160px - 300px.
 
 == Changelog ==
+
+= 1.1 =
+* Updated for WordPress 4.0
 
 = 1.0 =
 * Refactored to object-oriented.

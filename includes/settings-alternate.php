@@ -20,7 +20,8 @@ function wpmwam_style() {
 add_action( 'admin_enqueue_scripts', 'wpmwam_style' );
 </pre>
 	
-<p><strong><?php _e( 'That stylesheet covers WordPress 3.8 and up.', 'wider-admin-menu' ); ?></strong></p>
+<p><strong><?php _e( 'That stylesheet covers WordPress 4.0 and up.', 'wider-admin-menu' ); ?></strong></p>
+<p><?php printf( __( 'For WordPress %s to %s, substitute %s.', 'wider-admin-menu'), '3.8', '3.9.2', '<code>wider-admin-menu-38.css</code>' ); ?></p>
 <p><?php printf( __( 'For WordPress %s to %s, substitute %s.', 'wider-admin-menu'), '3.5', '3.7.1', '<code>wider-admin-menu-35.css</code>' ); ?></p>
 <p><?php printf( __( 'For WordPress %s to %s, substitute %s.', 'wider-admin-menu'), '3.3', '3.4.2', '<code>wider-admin-menu-33.css</code>' ); ?></p>
 <p><?php _e( 'Then you can deactivate this plugin.', 'wider-admin-menu' ); ?></p>

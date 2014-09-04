@@ -4,7 +4,7 @@
  * Plugin URI: http://www.wpmission.com/plugins/wider-admin-menu/
  * Description: Make the Admin Menu wider to accomodate long menu items.
  * Author: Chris Dillon
- * Version: 1.0
+ * Version: 1.1
  * Author URI: http://wpmission.com
  * Text Domain: wider-admin-menu
  * Requires: 3.3 or higher
@@ -111,7 +111,9 @@ class WiderAdminMenu {
 		$w1px = ( $w + 1 ) . 'px';
 		$w2px = ( $w + 20 ) . 'px';
 
-		if ( version_compare( $wp_version, '3.8', '>=' ) )
+		if ( version_compare( $wp_version, '4.0-RC1', '>=' ) )
+			$file = 'style40';
+		elseif ( version_compare( $wp_version, '3.8', '>=' ) )
 			$file = 'style38';
 		elseif ( version_compare( $wp_version, '3.5', '>=' ) ) 
 			$file = 'style35';
@@ -180,4 +182,4 @@ class WiderAdminMenu {
 
 }
 
-$wider_admin_menu = new WiderAdminMenu();
+new WiderAdminMenu();

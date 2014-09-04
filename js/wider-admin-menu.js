@@ -1,4 +1,4 @@
-/*
+/**
  * Wider Admin Menu
  */
 jQuery( document ).ready(function($){
@@ -51,7 +51,19 @@ jQuery( document ).ready(function($){
 		// or to lock content at the widest point:
 		// var wider2px = '320px';
 				
-		if( parseInt( wpArr[0] ) >= 3 && parseInt( wpArr[1] ) >= 8 ) {  // 3.8+
+		if( parseInt( wpArr[0] ) >= 4 && parseInt( wpArr[1] ) >= 0 ) {  // 4.0+
+		
+			$('#wpcontent, #wpfooter').css('margin-left', widerpx);
+
+			$('#adminmenuback, #adminmenuwrap, #adminmenu, #adminmenu .wp-submenu').width(widerpx);
+
+			$('#adminmenu .wp-submenu')
+					.not('.wp-has-current-submenu.wp-menu-open .wp-submenu')
+					.css('left', widerpx);
+
+			$('#adminmenu .wp-not-current-submenu .wp-submenu, .folded #adminmenu .wp-has-current-submenu .wp-submenu').css('min-width', widerpx);
+
+		} else if( parseInt( wpArr[0] ) >= 3 && parseInt( wpArr[1] ) >= 8 ) {  // 3.8+
 		
 			$('#wpcontent, #wpfooter').css('margin-left', wider2px);
 
