@@ -2,9 +2,9 @@
 /*
  * Plugin Name: Wider Admin Menu
  * Plugin URI: http://www.wpmission.com/plugins/wider-admin-menu/
- * Description: Make the Admin Menu wider to accomodate long menu items.
+ * Description: Let your admin menu breathe.
  * Author: Chris Dillon
- * Version: 1.1
+ * Version: 1.1.1
  * Author URI: http://wpmission.com
  * Text Domain: wider-admin-menu
  * Requires: 3.3 or higher
@@ -35,7 +35,6 @@ class WiderAdminMenu {
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_styles' ) );
 		
 		register_activation_hook( __FILE__, array( $this, 'install' ) );
-		register_uninstall_hook( __FILE__, 'WiderAdminMenu', 'uninstall' );
 		
 		add_filter( 'plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2 );
 		add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 4 );
@@ -49,20 +48,12 @@ class WiderAdminMenu {
 			wp_enqueue_style( 'nouislider-style',	plugins_url( '/css/jquery.nouislider.min.css', __FILE__ ) );
 			wp_enqueue_script( 'nouislider', plugins_url( '/js/jquery.nouislider.min.js', __FILE__ ), array( 'jquery' ) );
 			
-			wp_enqueue_style( 'wpmwam-options',	plugins_url( '/css/options.css', __FILE__ ) );
+			wp_enqueue_style( 'wpmwam-options', plugins_url( '/css/options.css', __FILE__ ) );
 			wp_enqueue_script( 'wpmwam-script', plugins_url( '/js/wider-admin-menu.js', __FILE__ ), array( 'nouislider' ) );
 		}
-	}
-	
-	/*
-	 * Uninstall and Leave No Trace.
-	 */ 
-	public static function uninstall() {
-		if ( !defined( 'WP_UNINSTALL_PLUGIN' ) ) 
-			exit();
-		$options = get_option( 'wpmwam_options' );
-		if ( $options['wpmwam_lnt'] )
-			delete_option( 'wpmwam_options' );
+		elseif ( 'plugins.php' == $hook ) {
+			wp_enqueue_style( 'wpmwam-admin-style', plugins_url( '/css/admin.css', __FILE__ ) );
+		}
 	}
 	
 	/*
@@ -92,7 +83,7 @@ class WiderAdminMenu {
 	 */
 	public function plugin_row_meta( $plugin_meta, $plugin_file, $plugin_data, $status ) {
 		if ( $plugin_file == plugin_basename( __FILE__ ) ) {
-			$plugin_meta[] = '<a href="http://www.wpmission.com/donate" target="_blank">Donate</a>';
+			$plugin_meta[] = '<span class="lnt"><span class="dashicons dashicons-yes"></span> Leave No Trace</span>';
 		}
 		return $plugin_meta;
 	}
@@ -111,7 +102,7 @@ class WiderAdminMenu {
 		$w1px = ( $w + 1 ) . 'px';
 		$w2px = ( $w + 20 ) . 'px';
 
-		if ( version_compare( $wp_version, '4.0-RC1', '>=' ) )
+		if ( version_compare( $wp_version, '4.0', '>=' ) )
 			$file = 'style40';
 		elseif ( version_compare( $wp_version, '3.8', '>=' ) )
 			$file = 'style38';
