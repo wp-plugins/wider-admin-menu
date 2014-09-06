@@ -101,8 +101,9 @@ So this plugin will completely remove itself upon deletion. Deactivating the plu
 
 == Changelog ==
 
-= 1.1 =
+= 1.1.1 =
 * Remove "RC" from version check.
+* Add `uninstall.php`, a best practice.
 
 = 1.1 =
 * Updated for WordPress 4.0.
