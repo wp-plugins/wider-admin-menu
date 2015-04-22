@@ -4,7 +4,7 @@
  * Plugin URI: http://www.wpmission.com/plugins/wider-admin-menu/
  * Description: Let your admin menu breathe.
  * Author: Chris Dillon
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author URI: http://wpmission.com
  * Text Domain: wider-admin-menu
  * Requires: 3.3 or higher
@@ -44,15 +44,24 @@ class WiderAdminMenu {
 	}
 		
 	public function register_admin_styles( $hook ) {
+		
 		if ( 'settings_page_wider-admin-menu' == $hook ) {
-			wp_enqueue_style( 'nouislider-style',	plugins_url( '/css/jquery.nouislider.min.css', __FILE__ ) );
-			wp_enqueue_script( 'nouislider', plugins_url( '/js/jquery.nouislider.min.js', __FILE__ ), array( 'jquery' ) );
 			
 			wp_enqueue_style( 'wpmwam-options', plugins_url( '/css/options.css', __FILE__ ) );
-			wp_enqueue_script( 'wpmwam-script', plugins_url( '/js/wider-admin-menu.js', __FILE__ ), array( 'nouislider' ) );
+			
+			$active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'settings';
+			
+			if ( 'settings' == $active_tab ) {
+				wp_enqueue_style( 'nouislider-style',	plugins_url( '/css/jquery.nouislider.min.css', __FILE__ ) );
+				wp_enqueue_script( 'nouislider', plugins_url( '/js/jquery.nouislider.min.js', __FILE__ ), array( 'jquery' ) );
+				wp_enqueue_script( 'wpmwam-script', plugins_url( '/js/wider-admin-menu.js', __FILE__ ), array( 'nouislider' ) );
+			}
+			
 		}
 		elseif ( 'plugins.php' == $hook ) {
+			
 			wp_enqueue_style( 'wpmwam-admin-style', plugins_url( '/css/admin.css', __FILE__ ) );
+			
 		}
 	}
 	

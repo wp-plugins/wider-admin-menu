@@ -4,6 +4,10 @@
 jQuery( document ).ready(function($){
 	
 	var wpVersion = $('input[name="wp_version"]').val();
+	
+	if( undefined === wpVersion )
+		return;
+	
 	wpArr = wpVersion.split('.');
 
 	var Link = $.noUiSlider.Link,

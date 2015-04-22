@@ -19,7 +19,7 @@ This plugin will *leave no trace!* If you delete the plugin, all settings will b
 
 = Recommended =
 
-[Admin Menu Post List](http://wordpress.org/plugins/admin-menu-post-list/) (fully compatible)
+[Admin Menu Post List](http://wordpress.org/plugins/admin-menu-post-list/)
 
 = Known Conflicts =
 
@@ -101,9 +101,12 @@ So this plugin will completely remove itself upon deletion. Deactivating the plu
 
 == Changelog ==
 
+= 1.1.2 - April 22, 2015 =
+* Fix minor JavaScript bug on Settings page.
+
 = 1.1.1 =
 * Remove "RC" from version check.
-* Add `uninstall.php`, a best practice.
+* Add `uninstall.php`.
 
 = 1.1 =
 * Updated for WordPress 4.0.
@@ -132,17 +135,3 @@ So this plugin will completely remove itself upon deletion. Deactivating the plu
 
 = 0.1 =
 * First release.
-
-== Upgrade Notice ==
-
-= 1.1.1 =
-Minor fixes.
-
-= 1.1 =
-Updated for WordPress 4.0.
-
-= 1.0 =
-Object-oriented refactor. Improved i18n, ready for translations.
-
-= 0.3 =
-Definitely upgrade if you're running WordPress versions 3.5 to 3.7.1.
